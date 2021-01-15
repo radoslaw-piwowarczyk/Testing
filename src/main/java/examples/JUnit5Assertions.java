@@ -1,17 +1,23 @@
 package examples;
 
+import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
 
 public class JUnit5Assertions {
-    private Map<String, Code> codes;
+    private Map<String, Code> codes = new HashMap<>();
 
     boolean isPrimeNumber(int number) {
-        return false;
+        for (int i = 2; i <= Math.sqrt(number); i++) {
+            if (number % i == 0) {
+                return false;
+            }
+        }
+        return true;
     }
 
     Code getCode(String key) {
-        if (!codes.containsKey(key)) {
+        if (codes.containsKey(key)) {
             return codes.get(key);
         } else {
             //simulating long time for generating code
