@@ -1,4 +1,4 @@
-package examples;
+package JUnit5;
 
 public class Caclulator {
 
