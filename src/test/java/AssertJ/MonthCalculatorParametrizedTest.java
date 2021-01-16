@@ -35,5 +35,25 @@ public class MonthCalculatorParametrizedTest {
         Assertions.assertThat(dayCount).isEqualTo(30);
     }
 
+    @ParameterizedTest
+    @CsvSource({"2021,02"})
+    public void shouldReturn28days(int year, int month) {
+        //when
+        int dayCount = monthCalculator.getDayCount(year, month);
+
+        //then
+        Assertions.assertThat(dayCount).isEqualTo(28);
+    }
+
+    @ParameterizedTest
+    @CsvSource({"2004,02", "200,02"})
+    public void shouldReturn29Days(int year, int month) {
+        //when
+        int dayCount = monthCalculator.getDayCount(year, month);
+
+        //then
+        Assertions.assertThat(dayCount).isEqualTo(29);
+    }
+
 
 }
