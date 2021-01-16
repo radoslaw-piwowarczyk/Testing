@@ -6,7 +6,8 @@ import org.junit.jupiter.params.provider.EnumSource;
 
 public class EnumSourceExample {
     @ParameterizedTest
-    @EnumSource(SingUpStatus.class)
+//    @EnumSource(SingUpStatus.class)
+    @EnumSource(value= SingUpStatus.class, mode=EnumSource.Mode.EXCLUDE,names = "PAID")
     void shouldNotHaveAccess(SingUpStatus singUpStatus) {
         //given
         AcessController acessController = new AcessController();
