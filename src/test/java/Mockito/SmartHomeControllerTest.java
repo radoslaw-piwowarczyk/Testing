@@ -1,11 +1,10 @@
 package Mockito;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.Mockito;
-import org.mockito.MockitoAnnotations;
 import org.mockito.junit.jupiter.MockitoExtension;
 
 @ExtendWith(MockitoExtension.class)
@@ -15,6 +14,8 @@ public class SmartHomeControllerTest {
     private HumiditySensor humiditySensorMock;
     @Mock
     private WateringController wateringControllerMock;
+    @InjectMocks
+    private SmartHomeController smartHomeController;
 
     /**
      * when not using MockitoExtension
@@ -31,10 +32,13 @@ public class SmartHomeControllerTest {
          */
 //        HumiditySensor humiditySensorMock = Mockito.mock(HumiditySensor.class);
 //        WateringController wateringControllerMock = Mockito.mock(WateringController.class);
+        /**
+         * when not using InjectMockito
+         */
+//        SmartHomeController smartHomeController = new SmartHomeController(humiditySensorMock, wateringControllerMock);
 
         //given
         Mockito.when(humiditySensorMock.getHumidity()).thenReturn(50);
-        SmartHomeController smartHomeController = new SmartHomeController(humiditySensorMock, wateringControllerMock);
 
         //when
         smartHomeController.enableWateringIfNeeded();
