@@ -16,7 +16,7 @@ public class SalaryCalculatorService {
         BigDecimal bonus = BigDecimal.ZERO;
         if (finishedTasks >= 20) {
             bonus = new BigDecimal("1000");
-        } else if (finishedTasks >= 20) {
+        } else if (finishedTasks >= 10) {
             bonus = new BigDecimal("500");
         }
         return employee.getBaseSalary().add(bonus);

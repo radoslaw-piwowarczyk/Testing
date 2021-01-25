@@ -3,6 +3,8 @@ package Mockito.Exercise;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -47,5 +49,19 @@ public class SalaryCalculatorServiceTest {
 
         //then
         Assertions.assertThat(salary).isEqualTo(BigDecimal.valueOf(3000));
+    }
+    @ParameterizedTest
+    @ValueSource(ints={10,19})
+    public void shouldHave500Bonus(int finishedTasks){
+        //given
+        Employee employee = Mockito.mock(Employee.class);
+        Mockito.when(employee.getBaseSalary()).thenReturn(BigDecimal.valueOf(2000));
+        Mockito.when(taskManagementSystem.countFinishedTasksForEmployee(employee)).thenReturn(finishedTasks);
+
+        //when
+        BigDecimal salary = salaryCalculatorService.calculateSalary(employee);
+
+        //then
+        Assertions.assertThat(salary).isEqualTo(BigDecimal.valueOf(2500));
     }
 }
