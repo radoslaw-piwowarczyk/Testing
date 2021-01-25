@@ -1,5 +1,8 @@
-package Mockito;
+package Mockito.SmartHome;
 
+import Mockito.SmartHome.HumiditySensor;
+import Mockito.SmartHome.SmartHomeController;
+import Mockito.SmartHome.WateringController;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;

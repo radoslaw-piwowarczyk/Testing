@@ -1,4 +1,4 @@
-package Mockito;
+package Mockito.SmartHome;
 
 public class SmartHomeController {
     private HumiditySensor humiditySensor;

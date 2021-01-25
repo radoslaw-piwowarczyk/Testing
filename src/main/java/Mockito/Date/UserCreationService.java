@@ -4,7 +4,13 @@ import java.time.ZonedDateTime;
 
 public class UserCreationService {
 
-    public User createUser(String name){
-        return new User(name, ZonedDateTime.now());
+    private DateTimeProvider dateTimeProvider;
+
+    public UserCreationService(DateTimeProvider dateTimeProvider) {
+        this.dateTimeProvider = dateTimeProvider;
+    }
+
+    public User createUser(String name) {
+        return new User(name, dateTimeProvider.currentZonedTime());
     }
 }

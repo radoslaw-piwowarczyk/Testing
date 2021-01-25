@@ -1,4 +1,4 @@
-package Mockito;
+package Mockito.SmartHome;
 
 public interface WateringController {
     void enableWatering();
