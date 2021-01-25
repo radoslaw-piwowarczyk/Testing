@@ -70,7 +70,7 @@ public class SalaryCalculatorServiceTest {
     public void shouldHandleVoidMethod(){
         Employee employee = Mockito.mock(Employee.class);
 
-        Mockito.doThrow(new IllegalStateException().).when(employee).setName(ArgumentMatchers.anyString());
+        Mockito.doThrow(new IllegalStateException()).when(employee).setName(ArgumentMatchers.anyString());
         employee.setName("Tomek");
         employee.setName("Romek");
     }
