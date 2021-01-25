@@ -5,6 +5,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.ValueSource;
+import org.mockito.ArgumentMatchers;
 import org.mockito.Mock;
 import org.mockito.Mockito;
 import org.mockito.MockitoAnnotations;
@@ -63,5 +64,14 @@ public class SalaryCalculatorServiceTest {
 
         //then
         Assertions.assertThat(salary).isEqualTo(BigDecimal.valueOf(2500));
+    }
+
+    @Test
+    public void shouldHandleVoidMethod(){
+        Employee employee = Mockito.mock(Employee.class);
+
+        Mockito.doThrow(new IllegalStateException().).when(employee).setName(ArgumentMatchers.anyString());
+        employee.setName("Tomek");
+        employee.setName("Romek");
     }
 }
