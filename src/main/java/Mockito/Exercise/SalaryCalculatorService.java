@@ -4,8 +4,13 @@ import java.math.BigDecimal;
 
 public class SalaryCalculatorService {
 
+    private TaskManagementSystem taskManagementSystem;
+
+    public SalaryCalculatorService(TaskManagementSystem taskManagementSystem) {
+        this.taskManagementSystem = taskManagementSystem;
+    }
+
     public BigDecimal calculateSalary(Employee employee) {
-        TaskManagementSystem taskManagementSystem = new TaskManagementSystem();
         int finishedTasks = taskManagementSystem.countFinishedTasksForEmployee(employee);
 
         BigDecimal bonus = BigDecimal.ZERO;
