@@ -14,10 +14,10 @@ public class SalaryCalculatorService {
         int finishedTasks = taskManagementSystem.countFinishedTasksForEmployee(employee);
 
         BigDecimal bonus = BigDecimal.ZERO;
-        if (finishedTasks >= 10) {
-            bonus = new BigDecimal("500");
-        } else if (finishedTasks > 20) {
+        if (finishedTasks >= 20) {
             bonus = new BigDecimal("1000");
+        } else if (finishedTasks >= 20) {
+            bonus = new BigDecimal("500");
         }
         return employee.getBaseSalary().add(bonus);
     }

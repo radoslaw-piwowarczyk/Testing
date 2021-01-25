@@ -35,4 +35,17 @@ public class SalaryCalculatorServiceTest {
         //then
         Assertions.assertThat(salary).isEqualTo(BigDecimal.valueOf(2000));
     }
+
+    @Test
+    public void shouldHave1000Bonus(){
+        //given
+        Employee employee = new Employee("Tomek", BigDecimal.valueOf(2000));
+        Mockito.when(taskManagementSystem.countFinishedTasksForEmployee(employee)).thenReturn(20);
+
+        //when
+        BigDecimal salary = salaryCalculatorService.calculateSalary(employee);
+
+        //then
+        Assertions.assertThat(salary).isEqualTo(BigDecimal.valueOf(3000));
+    }
 }
